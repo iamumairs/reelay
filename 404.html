@@ -65,6 +65,31 @@
     
     
       
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-153753179-1", "mkdocs.org")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
     
     
   </head>
@@ -229,27 +254,15 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="/motivation/" title="Motivation" class="md-nav__link">
-      Motivation
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-2">
       Install
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-2">
         Install
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -291,13 +304,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-3">
       Get Started
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-3">
         Get Started
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -309,8 +322,8 @@
 
 
   <li class="md-nav__item">
-    <a href="/gs_intro/" title="An Example" class="md-nav__link">
-      An Example
+    <a href="/gs_intro/" title="Tutorial: Intro" class="md-nav__link">
+      Tutorial: Intro
     </a>
   </li>
 
@@ -321,8 +334,8 @@
 
 
   <li class="md-nav__item">
-    <a href="/gs_cpp/" title="C++ Tutorial" class="md-nav__link">
-      C++ Tutorial
+    <a href="/gs_cpp/" title="How to use from C++" class="md-nav__link">
+      How to use from C++
     </a>
   </li>
 
@@ -333,8 +346,8 @@
 
 
   <li class="md-nav__item">
-    <a href="/gs_python/" title="Python Tutorial" class="md-nav__link">
-      Python Tutorial
+    <a href="/gs_python/" title="How to use from Python" class="md-nav__link">
+      How to use from Python
     </a>
   </li>
 
@@ -345,8 +358,8 @@
 
 
   <li class="md-nav__item">
-    <a href="/gs_cli/" title="CLI Tutorial" class="md-nav__link">
-      CLI Tutorial
+    <a href="/gs_cli/" title="How to use from CLI" class="md-nav__link">
+      How to use from CLI
     </a>
   </li>
 
@@ -363,13 +376,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-4">
       User Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-4">
         User Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -381,7 +394,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/behaviors.md" title="Temporal Behaviors" class="md-nav__link">
+    <a href="/behaviors/" title="Temporal Behaviors" class="md-nav__link">
       Temporal Behaviors
     </a>
   </li>
@@ -393,7 +406,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/specification.md" title="Formal Specifications" class="md-nav__link">
+    <a href="/specification/" title="Formal Specifications" class="md-nav__link">
       Formal Specifications
     </a>
   </li>
@@ -405,7 +418,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/cpp_api.md" title="C++ API" class="md-nav__link">
+    <a href="/cpp_api/" title="C++ API" class="md-nav__link">
       C++ API
     </a>
   </li>
@@ -459,13 +472,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-6">
+    <label class="md-nav__link" for="nav-5">
       Advanced Topics
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+      <label class="md-nav__title" for="nav-5">
         Advanced Topics
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -477,7 +490,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/time_models_advanced.md" title="Time Models" class="md-nav__link">
+    <a href="/time_models/" title="Time Models" class="md-nav__link">
       Time Models
     </a>
   </li>
@@ -489,8 +502,8 @@
 
 
   <li class="md-nav__item">
-    <a href="/temporal_logic.md" title="Temporal Logic" class="md-nav__link">
-      Temporal Logic
+    <a href="/past_temporal_logic/" title="Past Temporal Logic" class="md-nav__link">
+      Past Temporal Logic
     </a>
   </li>
 
@@ -501,7 +514,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/regular_expressions.md" title="Regular Expressions" class="md-nav__link">
+    <a href="/regular_expressions/" title="Regular Expressions" class="md-nav__link">
       Regular Expressions
     </a>
   </li>
@@ -513,7 +526,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/sequential_networks.md" title="Sequential Networks" class="md-nav__link">
+    <a href="/sequential_networks/" title="Sequential Networks" class="md-nav__link">
       Sequential Networks
     </a>
   </li>
@@ -543,13 +556,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-7">
+    <label class="md-nav__link" for="nav-6">
       About
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
+      <label class="md-nav__title" for="nav-6">
         About
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
