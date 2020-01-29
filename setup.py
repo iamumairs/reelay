@@ -9,6 +9,24 @@ from setuptools.command.build_ext import build_ext
 
 __version__ = '2001'
 
+cxxflags = ['--std=c++14', '-fvisibility=hidden']
+
+if platform.system() == 'Linux':
+    cxx = os.environ.get('CXX', 'g++')
+    if cxx.startswith('g++'):
+        cxxflags += ['-fno-new-ttp-matching']
+    if cxx.startswith('clang++'):
+        cxxflags += ['-fsized-deallocation']
+elif platform.system() == 'Darwin':
+    cxx = os.environ.get('CXX', 'clang++')
+    if cxx.startswith('g++'):
+        cxxflags += ['-fno-new-ttp-matching']
+    if cxx.startswith('clang++'):
+        cxxflags += ['-fsized-deallocation']
+elif platform.system() == 'Windows':
+    raise RuntimeError("Windows builds are not supported.")
+else:
+    raise RuntimeError("Unknown platform. Build did not complete.")
 
 class BuildWithCudd(build_ext):
     def run(self):
@@ -49,8 +67,7 @@ ext_recipes = Extension(
     ],
     # library_dirs=['usr/local/lib'],
     # libraries=['cudd'],
-    extra_compile_args=[
-        '--std=c++17', '-fvisibility=hidden'],
+    extra_compile_args=cxxflags,
     extra_objects=[
         'third_party/cudd/cudd/.libs/libcudd.a'],
     language='c++'
