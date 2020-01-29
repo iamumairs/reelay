@@ -50,7 +50,7 @@ ext_recipes = Extension(
     # library_dirs=['usr/local/lib'],
     # libraries=['cudd'],
     extra_compile_args=[
-        "-O3", "--std=c++17", "-fPIC", "-fno-new-ttp-matching", "-g0"],
+        '--std=c++17', '-fvisibility=hidden'],
     extra_objects=[
         'third_party/cudd/cudd/.libs/libcudd.a'],
     language='c++'
