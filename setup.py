@@ -1,7 +1,7 @@
 import os
 import sys
+import platform
 import subprocess
-
 import setuptools
 
 from setuptools import setup, Extension
